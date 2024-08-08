@@ -63,7 +63,7 @@ by installing parcel
 > > npm to install packages related to npm
 > > npx is used to execute the packages
 
-> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (8/7/2024)
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 2)
 
 # parcel-cache
 
@@ -130,3 +130,30 @@ Read about dif bundlers: vite, webpack, parcel
   ● - add `.gitignore` file
   ● - add `browserlists`
   ● - build a production version of your code using `parcel build`
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 3)
+
+"scripts": {
+"start": "parcel index.html",
+"build": "parcel build index.html",
+"test": "jest"
+}
+
+- To start project we only need to type npx start or npx run start
+
+# JSX
+
+- JSX is not HTML in JS instead it's more HTML-like or XML-like syntax
+- JSX is transpiled before it reaches the JS engine -> PARCEL(job of parcel to make use of babel) to convert JSX into browser understandable language
+
+<!-- React.createElement => ReactElement.JS object => HTMLElement(render) -->
+<!-- JSX => React.createElement => ReactElement - JS object => HTMLElement(render) -->
+
+# React Component
+
+- Class based Component - (OLD)
+- Functional based Component - (NEW ) - react functional component is just a JS function which return a jsx code
+
+# what is component composition
+
+- when we put component inside under another component is nothing but component composition

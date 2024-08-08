@@ -1,29 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// const heading = React.createElement(
-//   "h1",
-//   { id: "heading" },
-//   "hello from react"
-// );
+const Title = () => (
+  <h1 className="head" tabIndex="5">
+    Namaste React using JSX 🚀
+  </h1>
+);
 
-// console.log(heading); //it returns an object
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-
-// root.render(heading);
-
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "i am h1 tag"),
-    React.createElement("h2", {}, "i am h2 tag"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "i am h1 tag"),
-    React.createElement("h2", {}, "i am h2 tag"),
-  ]),
-]);
+// React Fragment - behaves like an empty tag
+const HeadingComponent = () => (
+  <>
+    <div id="container">
+      {/* <Title /> */}
+      {Title()}
+      <h1 className="heaidng">Namaste React Functional Component</h1>
+    </div>
+    <div id="container-2"></div>
+  </>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<HeadingComponent />);
