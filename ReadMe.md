@@ -157,3 +157,7 @@ Read about dif bundlers: vite, webpack, parcel
 # what is component composition
 
 - when we put component inside under another component is nothing but component composition
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 4)
+
+# never use index as key in react component
