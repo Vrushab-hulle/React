@@ -178,7 +178,7 @@ Read about dif bundlers: vite, webpack, parcel
 
 - normal js utility functions
 
-  > useState() - to genrate super powerful variables in react
+  > const[name,setName] = useState(myName) - to genrate super powerful variables in react
   > useEffect()
 
 - whenever state variable chnages react re-render our component
@@ -188,3 +188,14 @@ Read about dif bundlers: vite, webpack, parcel
 - react virtual dom is nothing but a js object what it does when ever the event happens it check the
   the actual dom and compares if there is any differnece then it changes the actual dom this is called
   react fiber
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 6)
+
+- useEffect(()=>{},[])
+- useEffect is called after the component has been rendered
+
+const[name,setName] = useState(myName)
+
+- we might get a doubt here is that when we update the name using setName(\_) how it is changed as it is a constant variable but the thing here is that we the state changes whole component is rendered so the next time it renders with the new value
+
+- whenever state changes react trigger a reconciliation cycle(i.e it re-renders a component)
