@@ -161,3 +161,30 @@ Read about dif bundlers: vite, webpack, parcel
 > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 4)
 
 # never use index as key in react component
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 5)
+
+- two types of export/import
+
+  > default - export default Component;
+
+            - import Component from "path";
+
+  > named - export component
+
+          - import {component} from "path"
+
+# React Hooks
+
+- normal js utility functions
+
+  > useState() - to genrate super powerful variables in react
+  > useEffect()
+
+- whenever state variable chnages react re-render our component
+- react is fast because it can do efficient DOM manipulation using diff alogorithm also called as
+  reconciliation it compares the virtual dom and then it updates the ui
+
+- react virtual dom is nothing but a js object what it does when ever the event happens it check the
+  the actual dom and compares if there is any differnece then it changes the actual dom this is called
+  react fiber
