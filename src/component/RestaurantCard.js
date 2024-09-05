@@ -8,10 +8,23 @@ function RestaurantCard(props) {
   return (
     <div className="res-card">
       <img className="res-logo" src={LOGO_URL + cloudinaryImageId}></img>
-      <h3>{name}</h3>
-      <h4>{cuisines.join(",")}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{costForTwo}</h4>
+      <div className="res-card-info">
+        <h3>{name}</h3>
+        <a
+          style={{
+            color: "grey",
+            fontSize: "14px",
+            display: "block",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "normal", // Change this to 'normal' if you want it to wrap
+          }}
+        >
+          {cuisines.join(",")}
+        </a>
+        <h4>{avgRating}</h4>
+        <h4>{costForTwo}</h4>
+      </div>
     </div>
   );
 }

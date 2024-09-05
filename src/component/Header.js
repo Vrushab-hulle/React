@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { CDN_URl } from "../utils/constants";
 
 function Header(props) {
+  const [btnName, setbtnName] = useState("login");
+
+  const btnClick = () => {
+    btnName === "login" ? setbtnName("logout") : setbtnName("login");
+    console.log(btnName);
+  };
   return (
     <div className="header">
       <div className="logo-container">
@@ -15,6 +21,9 @@ function Header(props) {
           <li>Contact Us</li>
           <li>Cart</li>
         </ul>
+        <button className="login-btn" onClick={btnClick}>
+          {btnName}
+        </button>
       </div>
     </div>
   );
