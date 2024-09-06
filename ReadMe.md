@@ -199,3 +199,9 @@ const[name,setName] = useState(myName)
 - we might get a doubt here is that when we update the name using setName(\_) how it is changed as it is a constant variable but the thing here is that we the state changes whole component is rendered so the next time it renders with the new value
 
 - whenever state changes react trigger a reconciliation cycle(i.e it re-renders a component)
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 7)
+
+useEffect(()=>{},[]) - the page is render only once(at start) as we have kept the dependency array
+useEffect(()=>{},[btnName]) - the page is render when there is change in btnName
+useEffect(()=>{}) - useEffect will execute on each render cycle
