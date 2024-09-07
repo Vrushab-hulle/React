@@ -3,43 +3,53 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useBody from "../utils/useBody";
 
 function Body(props) {
-  const [listofRestaurant, setListOfRestaurant] = useState([]);
-  const [fliterListofRestaurant, setFliterListofRestaurant] = useState([]);
+  // const [listofRestaurant, setListOfRestaurant] = useState([]);
+  // const [fliterListofRestaurant, setFliterListofRestaurant] = useState([]);
   const [searchText, setsearchText] = useState("");
 
   // first time reload
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   //to fetch the restaurant details from swiggy api
-  const fetchData = async () => {
-    const resData = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.7829951&lng=74.27661859999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const response = await resData.json();
+  // const fetchData = async () => {
+  //   const resData = await fetch(
+  //     );
+  //   const response = await resData.json();
 
-    setListOfRestaurant(
-      response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setFliterListofRestaurant(
-      response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
+  //   setListOfRestaurant(
+  //     response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+  //       ?.restaurants
+  //   );
+  //   setFliterListofRestaurant(
+  //     response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+  //       ?.restaurants
+  //   );
+  // };
+
+  const [listofRestaurant, fliterListofRestaurant, topRestuarant] = useBody();
 
   // function to filter top rated restaurants
-  const filterTopRestaurant = () => {
-    const filterData = listofRestaurant.filter((restaurant) => {
-      return restaurant?.info.avgRating > 4;
-    });
-    console.log(filterData);
+  // const filterTopRestaurant = () => {
+  //   const filterData = listofRestaurant.filter((restaurant) => {
+  //     return restaurant?.info.avgRating > 4;
+  //   });
+  //   console.log(filterData);
 
-    setFliterListofRestaurant(filterData);
-  };
+  //   setFliterListofRestaurant(filterData);
+  // };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h1>Looks like you are offline...Check your internet Connection!!!</h1>
+    );
+  }
 
   // for conditional render
   if (listofRestaurant.length === 0) {
@@ -71,7 +81,10 @@ function Body(props) {
           </button>
         </div>
 
-        <button className="filter-btn" onClick={filterTopRestaurant}>
+        <button
+          className="filter-btn"
+          //  onClick={filterTopRestaurant}
+        >
           Top Rated Restaurant
         </button>
       </div>
