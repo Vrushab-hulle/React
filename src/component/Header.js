@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 import { CDN_URl } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 function Header(props) {
   const [btnName, setbtnName] = useState("login");
+  const onlineStatus = useOnlineStatus();
 
   const btnClick = () => {
     btnName === "login" ? setbtnName("logout") : setbtnName("login");
@@ -19,6 +21,7 @@ function Header(props) {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Online Status:{onlineStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -27,6 +30,9 @@ function Header(props) {
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
         </ul>

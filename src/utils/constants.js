@@ -3,7 +3,10 @@ const CDN_URl =
 const LOGO_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
+const RESTAURANTS_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.7829951&lng=74.27661859999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
 const MENU_URL =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=16.7829951&lng=74.27661859999999&restaurantId=";
 
-export { CDN_URl, LOGO_URL, MENU_URL };
+export { CDN_URl, LOGO_URL, MENU_URL, RESTAURANTS_URL };
