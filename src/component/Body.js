@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function Body(props) {
   const [listofRestaurant, setListOfRestaurant] = useState([]);
@@ -33,9 +34,11 @@ function Body(props) {
   // function to filter top rated restaurants
   const filterTopRestaurant = () => {
     const filterData = listofRestaurant.filter((restaurant) => {
-      return restaurant?.info.avgRating > 4.2;
+      return restaurant?.info.avgRating > 4;
     });
-    setListOfRestaurant(filterData);
+    console.log(filterData);
+
+    setFliterListofRestaurant(filterData);
   };
 
   // for conditional render
@@ -57,11 +60,10 @@ function Body(props) {
           <button
             onClick={() => {
               const filterText = listofRestaurant.filter((res) => {
-                return res?.info.name
+                return res?.info?.name
                   .toLowerCase()
                   .includes(searchText.toLowerCase());
               });
-              // console.log(text);
               setFliterListofRestaurant(filterText);
             }}
           >
@@ -73,13 +75,15 @@ function Body(props) {
           Top Rated Restaurant
         </button>
       </div>
-      {/* {console.log(listofRestaurant)} */}
+      {console.log(listofRestaurant)}
       <div className="res-container">
         {fliterListofRestaurant.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant?.info.id}
-            resData={restaurant?.info}
-          />
+          <Link
+            key={restaurant?.info?.id}
+            to={"/restaurant/" + restaurant?.info?.id}
+          >
+            <RestaurantCard resData={restaurant?.info} />
+          </Link>
         ))}
       </div>
     </div>
