@@ -13,14 +13,14 @@ function Header(props) {
     console.log(btnName);
   };
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="flex justify-between bg-violet-100 border rounded">
+      <div className="flex items-center">
         <Link to="/">
-          <img className="logo" src={CDN_URl} />
+          <img className="w-[100] " src={CDN_URl} />
         </Link>
       </div>
-      <div className="nav-items">
-        <ul>
+      <div className="flex items-center ">
+        <ul className="flex space-x-8 m-[10] ">
           <li>Online Status:{onlineStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
@@ -35,10 +35,10 @@ function Header(props) {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
+          <button className="login-btn" onClick={btnClick}>
+            {btnName}
+          </button>
         </ul>
-        <button className="login-btn" onClick={btnClick}>
-          {btnName}
-        </button>
       </div>
     </div>
   );

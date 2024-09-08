@@ -9,12 +9,13 @@ import useBody from "../utils/useBody";
 function Body(props) {
   const [searchText, setsearchText] = useState("");
 
-  const [listofRestaurant, fliterListofRestaurant] = useBody();
+  const [listofRestaurant, fliterListofRestaurant, setFliterListofRestaurant] =
+    useBody();
 
   // function to filter top rated restaurants
   const filterTopRestaurant = () => {
     const filterData = listofRestaurant.filter((restaurant) => {
-      return restaurant?.info.avgRating > 4;
+      return restaurant?.info.avgRating > 4.5;
     });
     console.log(filterData);
 
@@ -42,10 +43,12 @@ function Body(props) {
   }
 
   return (
-    <div className="body">
-      <div className="filter">
+    <div className="mt-[20]">
+      <div className="flex justify-around">
         <div className="search">
           <input
+            placeholder="Search Restaurants"
+            className="placeholder-gray-500 h-[100%] mr-[20] w-[250] rounded border border-black"
             type="text"
             value={searchText}
             onChange={(e) => {
@@ -53,23 +56,22 @@ function Body(props) {
             }}
           ></input>
           <button
-          //  onClick={searchRestauarnt}
+            className="bg-blue-400 text-white p-[5] rounded"
+            onClick={searchRestauarnt}
           >
             Search
           </button>
         </div>
 
         <button
-          className="filter-btn"
-          // onClick={() => {
-          //   useFilterRestaurant();
-          // }}
+          className=" border border-black w-[180] rounded bg-orange-400 text"
+          onClick={filterTopRestaurant}
         >
-          Top Rated Restaurant
+          {"🔝"}Top Rated Restaurant
         </button>
       </div>
       {console.log(listofRestaurant)}
-      <div className="res-container">
+      <div className="flex flex-wrap ">
         {fliterListofRestaurant.map((restaurant) => (
           <Link
             key={restaurant?.info?.id}
