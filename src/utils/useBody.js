@@ -25,7 +25,7 @@ const useBody = () => {
     );
   };
 
-  return [listofRestaurant, fliterListofRestaurant];
+  return [listofRestaurant, fliterListofRestaurant, setFliterListofRestaurant];
 };
 
 export default useBody;
