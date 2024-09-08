@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
@@ -7,42 +7,27 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import useBody from "../utils/useBody";
 
 function Body(props) {
-  // const [listofRestaurant, setListOfRestaurant] = useState([]);
-  // const [fliterListofRestaurant, setFliterListofRestaurant] = useState([]);
   const [searchText, setsearchText] = useState("");
 
-  // first time reload
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  //to fetch the restaurant details from swiggy api
-  // const fetchData = async () => {
-  //   const resData = await fetch(
-  //     );
-  //   const response = await resData.json();
-
-  //   setListOfRestaurant(
-  //     response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-  //       ?.restaurants
-  //   );
-  //   setFliterListofRestaurant(
-  //     response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-  //       ?.restaurants
-  //   );
-  // };
-
-  const [listofRestaurant, fliterListofRestaurant, topRestuarant] = useBody();
+  const [listofRestaurant, fliterListofRestaurant] = useBody();
 
   // function to filter top rated restaurants
-  // const filterTopRestaurant = () => {
-  //   const filterData = listofRestaurant.filter((restaurant) => {
-  //     return restaurant?.info.avgRating > 4;
-  //   });
-  //   console.log(filterData);
+  const filterTopRestaurant = () => {
+    const filterData = listofRestaurant.filter((restaurant) => {
+      return restaurant?.info.avgRating > 4;
+    });
+    console.log(filterData);
 
-  //   setFliterListofRestaurant(filterData);
-  // };
+    setFliterListofRestaurant(filterData);
+  };
+
+  // search any restuarant
+  const searchRestauarnt = () => {
+    const filterText = listofRestaurant.filter((res) => {
+      return res?.info?.name.toLowerCase().includes(searchText.toLowerCase());
+    });
+    setFliterListofRestaurant(filterText);
+  };
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
@@ -68,14 +53,7 @@ function Body(props) {
             }}
           ></input>
           <button
-            onClick={() => {
-              const filterText = listofRestaurant.filter((res) => {
-                return res?.info?.name
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase());
-              });
-              setFliterListofRestaurant(filterText);
-            }}
+          //  onClick={searchRestauarnt}
           >
             Search
           </button>
@@ -83,7 +61,9 @@ function Body(props) {
 
         <button
           className="filter-btn"
-          //  onClick={filterTopRestaurant}
+          // onClick={() => {
+          //   useFilterRestaurant();
+          // }}
         >
           Top Rated Restaurant
         </button>
