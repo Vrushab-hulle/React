@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { MENU_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
@@ -27,6 +25,14 @@ const RestaurantMenu = () => {
   // getting values for the menu of restaurant
   const { categories, itemCards } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card;
+
+  // const category =
+  //   resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => {
+  //     return (
+  //       c?.card?.card?.["@type"] ===
+  //       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  //     );
+  //   });
 
   return (
     <div className="menu">
