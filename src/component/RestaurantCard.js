@@ -30,4 +30,19 @@ function RestaurantCard(props) {
   );
 }
 
+export const FastestDelivery = (RestaurantCard) => {
+  return (props) => {
+    const { resData } = props;
+    const { deliveryTime } = resData?.sla;
+    return (
+      <div>
+        <p className="w-[220] p-[1] shadow-sm rounded-md absolute bg-green-600 text-white italic">
+          Fast Delivery :{deliveryTime + " minutes" + " 🛵"}
+        </p>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;

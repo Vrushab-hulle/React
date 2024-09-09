@@ -5,6 +5,8 @@ const useBody = () => {
   const [listofRestaurant, setListOfRestaurant] = useState([]);
   const [fliterListofRestaurant, setFliterListofRestaurant] = useState([]);
 
+  console.log(listofRestaurant);
+
   useEffect(() => {
     fetchRestaurantCardDetails();
   }, []);

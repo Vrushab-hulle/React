@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { FastestDelivery } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -12,10 +12,12 @@ function Body(props) {
   const [listofRestaurant, fliterListofRestaurant, setFliterListofRestaurant] =
     useBody();
 
+  const FastDelivery = FastestDelivery(RestaurantCard);
+
   // function to filter top rated restaurants
   const filterTopRestaurant = () => {
     const filterData = listofRestaurant.filter((restaurant) => {
-      return restaurant?.info.avgRating > 4.5;
+      return restaurant?.info.avgRating > 4;
     });
     console.log(filterData);
 
@@ -77,7 +79,11 @@ function Body(props) {
             key={restaurant?.info?.id}
             to={"/restaurant/" + restaurant?.info?.id}
           >
-            <RestaurantCard resData={restaurant?.info} />
+            {restaurant?.info?.sla?.deliveryTime < 30 ? (
+              <FastDelivery resData={restaurant?.info} />
+            ) : (
+              <RestaurantCard resData={restaurant?.info} />
+            )}
           </Link>
         ))}
       </div>

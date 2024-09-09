@@ -205,3 +205,26 @@ const[name,setName] = useState(myName)
 useEffect(()=>{},[]) - the page is render only once(at start) as we have kept the dependency array
 useEffect(()=>{},[btnName]) - the page is render when there is change in btnName
 useEffect(()=>{}) - useEffect will execute on each render cycle
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 8)
+
+# class component
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 9)
+
+# optimizing our App
+
+- custom hooks
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 10)
+
+- introduction to tailwind css
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 11)
+
+# Data is the New Oil
+
+# Higher Order Component
+
+- it just takes one component enhances it and return the component
+  - going to show restaurant with batch which delivery less than 30 mins using higher order component
