@@ -13,7 +13,7 @@ function Header(props) {
     console.log(btnName);
   };
   return (
-    <div className="flex justify-between bg-violet-100 border rounded">
+    <div className="flex justify-between bg-violet-100 border rounded w-full m-0 ">
       <div className="flex items-center">
         <Link to="/">
           <img className="w-[100] " src={CDN_URl} />

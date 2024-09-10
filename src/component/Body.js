@@ -73,7 +73,7 @@ function Body(props) {
         </button>
       </div>
       {console.log(listofRestaurant)}
-      <div className="flex flex-wrap ">
+      <div className="flex flex-wrap ml-4 gap-[0]">
         {fliterListofRestaurant.map((restaurant) => (
           <Link
             key={restaurant?.info?.id}
