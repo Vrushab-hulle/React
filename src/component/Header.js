@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { CDN_URl } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 function Header(props) {
   const [btnName, setbtnName] = useState("login");
   const onlineStatus = useOnlineStatus();
+
+  const data = useContext(UserContext);
+  const { loggedInUser } = data;
 
   const btnClick = () => {
     btnName === "login" ? setbtnName("logout") : setbtnName("login");
@@ -35,9 +39,9 @@ function Header(props) {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
-          <button className="login-btn" onClick={btnClick}>
-            {btnName}
-          </button>
+          <button onClick={btnClick}>{btnName}</button>
+
+          {btnName == "logout" ? <li>{loggedInUser}</li> : <></>}
         </ul>
       </div>
     </div>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import RestaurantCard, { FastestDelivery } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useBody from "../utils/useBody";
+import UserContext from "../utils/UserContext";
 
 function Body(props) {
   const [searchText, setsearchText] = useState("");
@@ -39,6 +40,8 @@ function Body(props) {
     );
   }
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
   // for conditional render
   if (listofRestaurant.length === 0) {
     return <Shimmer />;
@@ -65,6 +68,13 @@ function Body(props) {
           </button>
         </div>
 
+        {/* <input
+          type="text"
+          className="border border-black"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        /> */}
+
         <button
           className=" border border-black w-[180] rounded bg-orange-400 text"
           onClick={filterTopRestaurant}
@@ -73,7 +83,7 @@ function Body(props) {
         </button>
       </div>
       {console.log(listofRestaurant)}
-      <div className="flex flex-wrap ml-4 gap-[0]">
+      <div className="flex flex-wrap  mr-2  w-full">
         {fliterListofRestaurant.map((restaurant) => (
           <Link
             key={restaurant?.info?.id}

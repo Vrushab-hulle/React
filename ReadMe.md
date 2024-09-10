@@ -232,3 +232,14 @@ useEffect(()=>{}) - useEffect will execute on each render cycle
 # controlled and uncontrolled component
 
 - for example we are using state variable in RestauarntCategory to implement acordian feature so we have followed to chaning the state varibale using click handle but the thing here is each category has its own state and it manages itself what if we want that all the Restauarnt category state should be handle by its parent that is Restauarnt menu so that all the control will be goes to the Restaurant menu so now the Restuarant cayegory is controlled by Restuarant menu
+
+# prop drilling
+
+- passing props to multiple level is not fesible as every component might not need the data
+- to over come this context are used in react it will create a global level context and that context can be used anywhere in the component we want without drilling it through multiple level in component
+
+const UserContext = createContext({
+name:"xyz"
+})
+
+const {name} = useContext(UserContext)
