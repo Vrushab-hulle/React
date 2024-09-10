@@ -1,7 +1,6 @@
 import { LOGO_URL } from "../utils/constants";
 
 const ItemList = ({ items }) => {
-  console.log(items)
   return (
     <div>
       {items.map((item) => (
@@ -23,7 +22,8 @@ const ItemList = ({ items }) => {
             </span>
             <span className="font-semibold">
               ₹{" "}
-              {item?.card?.info?.price / 100 || item.card.info.defaultPrice / 100}
+              {item?.card?.info?.price / 100 ||
+                item.card.info.defaultPrice / 100}
             </span>
             <span className="text-left text-sm text-gray-500 w-[400] mt-[10]">
               {item.card.info.description}
@@ -35,19 +35,15 @@ const ItemList = ({ items }) => {
                 {item.card.info?.imageId ? (
                   <img
                     src={LOGO_URL + item?.card?.info?.imageId}
-                    className="rounded-md w-[300] border aspect-squ?are "
+                    className="rounded-md w-[300] border aspect-square "
                   />
                 ) : null}
                 <div className="flex justify-center items-baseline w-[200]">
-                <button className="shadow-md shadow-gray-500 -mb-[5rem] border border-gray-400 p-[4] w-[80] rounded-md bg-white text-green-600 font-bold ">
-                  Add
-                </button>
+                  <button className="shadow-md shadow-gray-500 -mb-[5rem] border border-gray-400 p-[4] w-[80] rounded-md bg-white text-green-600 font-bold ">
+                    Add
+                  </button>
                 </div>
-                
               </div>
-              
-             
-              
             </div>
           </div>
         </div>

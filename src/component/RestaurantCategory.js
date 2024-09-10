@@ -1,11 +1,11 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data }) => {
-  const [showItems, setShowItems] = useState(false);
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
+  // const [showItems, setShowItems] = useState(false);
 
   const handleClick = () => {
-    setShowItems(!showItems);
+    setShowIndex();
   };
 
   return (
@@ -23,7 +23,7 @@ const RestaurantCategory = ({ data }) => {
 
         {/* Wrapper div for transition effect */}
         <div
-          className={`transition-all duration-990 ease-in-out overflow-hidden ${
+          className={`transition-all duration-1000 ease-in-out overflow-hidden ${
             showItems ? "opacity-100" : "max-h-0 opacity-0"
           }`}
         >
