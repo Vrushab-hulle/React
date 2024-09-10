@@ -13,7 +13,7 @@ const useRestaurantMenu = (resId) => {
       MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER"
     );
     const response = await data.json();
-    // console.log(response.data);
+    console.log(response.data);
     setResInfo(response?.data);
   };
   return resInfo;

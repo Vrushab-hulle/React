@@ -228,3 +228,7 @@ useEffect(()=>{}) - useEffect will execute on each render cycle
 
 - it just takes one component enhances it and return the component
   - going to show restaurant with batch which delivery less than 30 mins using higher order component
+
+# controlled and uncontrolled component
+
+- for example we are using state variable in RestauarntCategory to implement acordian feature so we have followed to chaning the state varibale using click handle but the thing here is each category has its own state and it manages itself what if we want that all the Restauarnt category state should be handle by its parent that is Restauarnt menu so that all the control will be goes to the Restaurant menu so now the Restuarant cayegory is controlled by Restuarant menu
