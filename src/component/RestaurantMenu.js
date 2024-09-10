@@ -1,6 +1,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -26,39 +27,29 @@ const RestaurantMenu = () => {
   const { categories, itemCards } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card;
 
-  // const category =
-  //   resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => {
-  //     return (
-  //       c?.card?.card?.["@type"] ===
-  //       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-  //     );
-  //   });
+  const category =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
+  console.log(category);
 
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <p>{areaName}</p>
-      <h3>{avgRating + "-" + totalRatingsString}</h3>
-      <p>{cuisines.join(",") + " -" + costForTwoMessage}</p>
-      <p>{expectationNotifiers[0]?.text}</p>
-      <h2>Menu</h2>
-      <p>{categories ? categories[0]?.title : itemCards?.title}</p>
+    <div className="text-center">
+      <h1 className="mt-[15] font-bold text-2xl">{name}</h1>
+      <p className="font-semibold italic text-gray-500">
+        Location:{" " + areaName}
+      </p>
+      <p className="font-mono text-green-500">
+        Cuisines:
+        {" " + cuisines.join(",") + "-" + costForTwoMessage}
+      </p>
 
-      <ul>
-        {categories
-          ? categories[0].itemCards.map((item) => (
-              <li key={item?.card?.info?.id}>
-                {item?.card?.info?.name}
-                {"Rs-" + item?.card?.info?.price / 100}
-              </li>
-            ))
-          : itemCards.map((item) => (
-              <li key={item?.card?.info?.id}>
-                {item?.card?.info?.name}
-                {"Rs-" + item?.card?.info?.price / 100}
-              </li>
-            ))}
-      </ul>
+      {category.map((category) => (
+        <RestaurantCategory data={category?.card?.card} />
+      ))}
     </div>
   );
 };
