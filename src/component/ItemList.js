@@ -1,6 +1,13 @@
+import { useDispatch } from "react-redux";
 import { LOGO_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItems = (item) => {
+    //dispatch an action
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {items.map((item) => (
@@ -39,7 +46,10 @@ const ItemList = ({ items }) => {
                   />
                 ) : null}
                 <div className="flex justify-center items-baseline w-[200]">
-                  <button className="shadow-md shadow-gray-500 -mb-[5rem] border border-gray-400 p-[4] w-[80] rounded-md bg-white text-green-600 font-bold ">
+                  <button
+                    onClick={() => handleAddItems(item)}
+                    className="shadow-md shadow-gray-500 -mb-[5rem] border border-gray-400 p-[4] w-[80] rounded-md bg-white text-green-600 font-bold "
+                  >
                     Add
                   </button>
                 </div>

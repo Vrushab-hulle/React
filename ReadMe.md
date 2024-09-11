@@ -243,3 +243,19 @@ name:"xyz"
 })
 
 const {name} = useContext(UserContext)
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 12)
+
+# Redux Store
+
+- Redux is not mandatory
+- Redux offer easy debugging
+
+# Redux Toolkit
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- connect our store to app
+- create a cart slice
+- dispatch an action
+- read data using selector

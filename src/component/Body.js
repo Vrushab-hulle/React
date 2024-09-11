@@ -82,7 +82,6 @@ function Body(props) {
           {"🔝"}Top Rated Restaurant
         </button>
       </div>
-      {console.log(listofRestaurant)}
       <div className="flex flex-wrap  mr-2  w-full">
         {fliterListofRestaurant.map((restaurant) => (
           <Link
