@@ -5,8 +5,6 @@ const useBody = () => {
   const [listofRestaurant, setListOfRestaurant] = useState([]);
   const [fliterListofRestaurant, setFliterListofRestaurant] = useState([]);
 
-  console.log(listofRestaurant);
-
   useEffect(() => {
     fetchRestaurantCardDetails();
   }, []);
@@ -15,7 +13,6 @@ const useBody = () => {
     const data = await fetch(RESTAURANTS_URL);
 
     const response = await data.json();
-    console.log(response);
 
     setListOfRestaurant(
       response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
