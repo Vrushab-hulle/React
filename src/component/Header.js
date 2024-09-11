@@ -15,11 +15,11 @@ function Header(props) {
 
   // subscribing tot he store
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   const btnClick = () => {
     btnName === "login" ? setbtnName("logout") : setbtnName("login");
-    console.log(btnName);
+    // console.log(btnName);
   };
   return (
     <div className="flex justify-between bg-violet-100 border rounded w-full m-0 ">
