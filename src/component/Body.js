@@ -20,7 +20,7 @@ function Body(props) {
     const filterData = listofRestaurant.filter((restaurant) => {
       return restaurant?.info.avgRating > 4;
     });
-    console.log(filterData);
+    // console.log(filterData);
 
     setFliterListofRestaurant(filterData);
   };

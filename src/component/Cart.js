@@ -10,10 +10,18 @@ const Cart = () => {
   const handleCartItem = () => {
     dispatch(clearCart());
   };
-
+  let amount;
+  const billAmount = (cartItems) => {
+    let total = cartItems.reduce((acc, curr) => {
+      return (curr = acc + (curr.card.info.price || curr.card.info.defaultPrice));
+      console.log( curr);
+    }, 0);
+    return Number(total);
+  };
+  let finalAmount= billAmount(cartItems)/100;
   return (
     <div className="h-full mt-4">
-      <div className="flex justify-start">
+      <div className="flex justify-end mr-[4.5rem]">
         <button
           onClick={handleCartItem}
           className="shadow-md bg-red-600 border mb-[10] w-[100] rounded-md text-white font-semibold "
@@ -71,8 +79,14 @@ const Cart = () => {
               </div>
               {/* right side */}
               <div className="pt-[10] text-gray-500 font-semibold font-mono">
-                395
+                
+              ₹ {finalAmount}
               </div>
+              {/* <div>
+              <button className="mt-4 border h-[50px] bg-green-400 m-5 text-white font-bold py-2 px-4 rounded">
+                  proceed to pay
+                </button> 
+              </div> */}
             </div>
           </div>
         </div>
