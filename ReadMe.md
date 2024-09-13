@@ -259,3 +259,37 @@ const {name} = useContext(UserContext)
 - create a cart slice
 - dispatch an action
 - read data using selector
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > (Episode 13)
+
+# Types of Testing
+
+- unit testing
+- Integration testing
+- end to end testing
+
+# Jest
+
+- jest is a delightful JavaScript Testing framework with a focus on simplicity
+
+# React Testing Library
+
+- RTL uses jest behind the scenes
+
+# Commands
+
+- npm i -D @testing-library/react
+- npm i -D jest
+- npm install --save-dev babel-jest @babel/core @babel/preset-env
+- create a babel config file at root level
+- configure Parcel config file to disable default babel transpilation so that it can use babel config we created (.parcelssrc file)
+
+> > npx jest --init
+> > √ Would you like to use Typescript for the configuration file? ... no
+> > √ Choose the test environment that will be used for testing » jsdom (browser-like)
+> > √ Do you want Jest to add coverage reports? ... yes
+> > √ Which provider should be used to instrument code for coverage? » babel
+> > √ Automatically clear mock calls, instances, contexts and results before every test? ... yes
+
+- install js dom package
+  > > npm install --save-dev jest-environment-jsdom
